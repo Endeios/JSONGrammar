@@ -1,0 +1,6 @@
+#!/bin/bash
+# IF u have antl4.0 installed like the tutorial on the official site describe, this should build and install the grammar
+antlr4 JSON.g4 -o org/endeios/json -package org.endeios.json -visitor
+javac org/endeios/json/JSON*.java
+jar cf jsonParser.jar org/endeios/json/*
+mvn install:install-file -Dfile=jsonParser.jar -DgroupId=org.endeios.json -DartifactId=json-parser -Dversion=0.1 -Dpackaging=jar
